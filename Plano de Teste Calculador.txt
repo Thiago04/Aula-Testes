@@ -1,0 +1,62 @@
+1. OBJETIVO DOS TESTES
+
+Validar as quatro operações matemáticas da calculadora (soma, subtração, divisão
+e multiplicação), validando que os resultados estejam corretos e que as regras
+de entrada estejam corretas, validando números inválidos e divisão por zero, que as mesmas funcionem
+conforme esperado.
+
+
+2. METODOLOGIA DE TESTE
+
+Focando nos resultados, em teste de mesa.
+Testar por etapas as operações da calculador.
+
+
+3. ESCOPO E TESTES
+
+  - Soma, subtração, divisão e multiplicação
+  - Validação de entrada não numérica
+  - Divisão por zero
+  - Números decimais e negativos
+
+
+4. TIPOS DE TESTES APLICADOS
+
+  - Funcional: verificação das operações matemáticas
+  - Validação de Entrada: campos vazios e texto não numérico
+  - Valor Limite: zero, negativos, decimais
+  - Regressão: garantir que correções não quebrem funções existentes
+
+
+5. FORMA DE EXECUÇÃO
+
+Testes manuais pelo navegador, fazendo todos os tipos de operações da calculadora.
+
+
+6. AMBIENTE DE TESTE
+
+- Realizado no navegador do computador, abrindo o arquivo HTML.
+
+
+7. PAPÉIS E RESPONSABILIDADES
+
+  - QA / Testador:   elaborar casos de teste, executar e registrar defeitos
+  - Desenvolvedor:   corrigir os bugs reportados
+  - PO / Analista:   validar critérios de aceite e priorizar correções
+
+
+8. RISCOS E CONTINGÊNCIAS
+
+Pontos de riscos não tratar as operações com . nas casas decimais.
+
+
+9. FERRAMENTAS DE TESTE
+
+ - Navegador (google chrome, Microsoft Edge)
+ - Visual Studio Code
+
+10. MÉTRICAS DE QUALIDADE
+
+- Validar as etapas de teste e validar se teve Bug.
+
+
