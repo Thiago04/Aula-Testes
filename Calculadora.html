@@ -19,6 +19,9 @@
         <button id="testarSubtrair" onclick="testarSubtrair()">Testar Subtração</button>
         <button id="testarDivisao" onclick="testarDivisao()">Testar Divisão</button>
         <button id="testarMultiplicacao" onclick="testarMultiplicacao()">Testar Multiplicação</button>
+        <button id="testarInput" onclick="testarInput()">Testar Input</button>
+        <button id="testarBotao" onclick="testarBotao()">Testar Botão</button>
+        <button id="testarTudo" onclick="testarTudo()">Testar Tudo</button>
     <div id="somar">
         <p>O resultado aparecerá aqui:
     </div>
@@ -29,6 +32,61 @@
 
 <script>
     <!-- JavaScript aqui -->
+    //Testar tudo
+
+function calcSomar(n1, n2)        { return n1 + n2; }
+function calcSubtrair(n1, n2)     { return n1 - n2; }
+function calcDivisao(n1, n2)      { return n2 !== 0 ? n1 / n2 : null; }
+function calcMultiplicacao(n1, n2){ return n1 * n2; }
+
+function testarTudo() {
+    document.getElementById("Numero1").value = "5";
+    document.getElementById("Numero2").value = "5";
+
+    let n1 = parseFloat(document.getElementById("Numero1").value);
+    let n2 = parseFloat(document.getElementById("Numero2").value);
+
+    document.getElementById("somar").innerHTML = "";
+
+    function verificar(op, esperado, resultado) {
+        if (resultado === esperado) {
+            document.getElementById("somar").innerHTML += "✅ " + op + ": " + n1 + " e " + n2 + " = " + resultado + "<br>";
+        } else {
+            document.getElementById("somar").innerHTML += "❌ " + op + " | esperado: " + esperado + " | obtido: " + resultado + "<br>";
+        }
+    }
+
+   
+    verificar("Soma",          n1 + n2,  calcSomar(n1, n2));
+    verificar("Subtração",     n1 - n2,  calcSubtrair(n1, n2));
+    verificar("Divisão",       n2 !== 0 ? n1 / n2 : null, calcDivisao(n1, n2));
+    verificar("Multiplicação", n1 * n2,  calcMultiplicacao(n1, n2));
+}
+
+
+    //teste input
+    function testarInput() {
+        const comp = document.getElementById("Numero2");
+        if (comp) {
+            document.getElementById("somar").innerHTML = "Input Encontrado";
+        }
+        else {
+            document.getElementById("somar").innerHTML = "Input não Encontrado";
+
+        }
+    }
+    //teste botão
+    function testarBotao() {
+        const comp = document.getElementById("Menos");
+        if (comp) {
+            document.getElementById("somar").innerHTML = "Botaão Encontrado";
+        }
+        else {
+            document.getElementById("somar").innerHTML = "Botão não Encontrado"
+        }
+
+    }
+
     function testarSoma() {
         document.getElementById("Numero1").value = "5"
         document.getElementById("Numero2").value = "5"
