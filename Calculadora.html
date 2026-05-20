@@ -14,11 +14,13 @@
     <button id="Menos" onclick="subtrair()">Clique para Subtrair</button>
     <button id="Divisao" onclick="Divisao()">Clique para Dividir</button>
     <button id="Multiplicacao" onclick="Multiplicacao()">Clique para Multiplicar</button>
+    <button id="BtnPorcentagem" onclick="Porcentagem()">Clique para Porcentagem</button>
     <p>
         <button id="testarSoma" onclick="testarSoma()">Testar Soma</button>
         <button id="testarSubtrair" onclick="testarSubtrair()">Testar Subtração</button>
         <button id="testarDivisao" onclick="testarDivisao()">Testar Divisão</button>
         <button id="testarMultiplicacao" onclick="testarMultiplicacao()">Testar Multiplicação</button>
+        <button id="testarPorcentagem" onclick="testarPorcentagem()">Tertar Porcentagem</button>
         <button id="testarInput" onclick="testarInput()">Testar Input</button>
         <button id="testarBotao" onclick="testarBotao()">Testar Botão</button>
         <button id="testarTudo" onclick="testarTudo()">Testar Tudo</button>
@@ -28,44 +30,58 @@
     <div id="subtrair"></div>
     <div id="divisao"></div>
     <div id="multiplicacao"></div>
+    <div id="resultadoPorcentagem"></div>
 </body>
 
 <script>
     <!-- JavaScript aqui -->
+
+    function limparResultados() {
+        document.getElementById("somar").innerHTML = "";
+        document.getElementById("subtrair").innerHTML = "";
+        document.getElementById("divisao").innerHTML = "";
+        document.getElementById("multiplicacao").innerHTML = "";
+        document.getElementById("resultadoPorcentagem").innerHTML = "";
+    }
     //Testar tudo
 
-function calcSomar(n1, n2)        { return n1 + n2; }
-function calcSubtrair(n1, n2)     { return n1 - n2; }
-function calcDivisao(n1, n2)      { return n2 !== 0 ? n1 / n2 : null; }
-function calcMultiplicacao(n1, n2){ return n1 * n2; }
+    function calcSomar(n1, n2) { return n1 + n2; }
+    function calcSubtrair(n1, n2) { return n1 - n2; }
+    function calcDivisao(n1, n2) { return n2 !== 0 ? n1 / n2 : null; }
+    function calcMultiplicacao(n1, n2) { return n1 * n2; }
+    function calcPorcentagem(n1, n2) { return (n1 * n2) / 100; }
 
-function testarTudo() {
-    document.getElementById("Numero1").value = "5";
-    document.getElementById("Numero2").value = "5";
+    function testarTudo() {
+         limparResultados();
+        document.getElementById("Numero1").value = "5";
+        document.getElementById("Numero2").value = "5";
 
-    let n1 = parseFloat(document.getElementById("Numero1").value);
-    let n2 = parseFloat(document.getElementById("Numero2").value);
+        let n1 = parseFloat(document.getElementById("Numero1").value);
+        let n2 = parseFloat(document.getElementById("Numero2").value);
 
-    document.getElementById("somar").innerHTML = "";
+        document.getElementById("somar").innerHTML = "";
 
-    function verificar(op, esperado, resultado) {
-        if (resultado === esperado) {
-            document.getElementById("somar").innerHTML += "✅ " + op + ": " + n1 + " e " + n2 + " = " + resultado + "<br>";
-        } else {
-            document.getElementById("somar").innerHTML += "❌ " + op + " | esperado: " + esperado + " | obtido: " + resultado + "<br>";
+        function verificar(op, esperado, resultado) {
+            if (resultado === esperado) {
+                document.getElementById("somar").innerHTML += "✅ " + op + ": " + n1 + " e " + n2 + " = " + resultado + "<br>";
+            } else {
+                document.getElementById("somar").innerHTML += "❌ " + op + " | esperado: " + esperado + " | obtido: " + resultado +
+                    "<br>";
+            }
         }
-    }
 
-   
-    verificar("Soma",          n1 + n2,  calcSomar(n1, n2));
-    verificar("Subtração",     n1 - n2,  calcSubtrair(n1, n2));
-    verificar("Divisão",       n2 !== 0 ? n1 / n2 : null, calcDivisao(n1, n2));
-    verificar("Multiplicação", n1 * n2,  calcMultiplicacao(n1, n2));
-}
+
+        verificar("Soma", n1 + n2, calcSomar(n1, n2));
+        verificar("Subtração", n1 - n2, calcSubtrair(n1, n2));
+        verificar("Divisão", n2 !== 0 ? n1 / n2 : null, calcDivisao(n1, n2));
+        verificar("Multiplicação", n1 * n2, calcMultiplicacao(n1, n2));
+        verificar("Porcentagem",   (n1 * n2) / 100,      calcPorcentagem(n1, n2));
+    }
 
 
     //teste input
     function testarInput() {
+         limparResultados();
         const comp = document.getElementById("Numero2");
         if (comp) {
             document.getElementById("somar").innerHTML = "Input Encontrado";
@@ -77,6 +93,7 @@ function testarTudo() {
     }
     //teste botão
     function testarBotao() {
+         limparResultados();
         const comp = document.getElementById("Menos");
         if (comp) {
             document.getElementById("somar").innerHTML = "Botão Encontrado";
@@ -101,6 +118,7 @@ function testarTudo() {
     }
 
     function somar() {
+         limparResultados();
         let numero1 = parseFloat(document.getElementById("Numero1").value);
         let numero2 = parseFloat(document.getElementById("Numero2").value);
         if (isNaN(numero1) || isNaN(numero2)) {
@@ -126,6 +144,7 @@ function testarTudo() {
     }
 
     function subtrair() {
+         limparResultados();
         let numero1 = parseFloat(document.getElementById("Numero1").value);
         let numero2 = parseFloat(document.getElementById("Numero2").value);
         if (isNaN(numero1) || isNaN(numero2)) {
@@ -150,6 +169,7 @@ function testarTudo() {
         }
     }
     function Divisao() {
+         limparResultados();
         let numero1 = parseFloat(document.getElementById("Numero1").value);
         let numero2 = parseFloat(document.getElementById("Numero2").value);
         if (isNaN(numero1) || isNaN(numero2)) {
@@ -177,6 +197,7 @@ function testarTudo() {
         }
     }
     function Multiplicacao() {
+         limparResultados();
         let numero1 = parseFloat(document.getElementById("Numero1").value);
         let numero2 = parseFloat(document.getElementById("Numero2").value);
         if (isNaN(numero1) || isNaN(numero2)) {
@@ -188,6 +209,29 @@ function testarTudo() {
             return resultado;
         }
     }
+     function testarPorcentagem() {
+        document.getElementById("Numero1").value = "200";
+        document.getElementById("Numero2").value = "10";
+        let resultado = Porcentagem();
+      
+        document.getElementById("resultadoPorcentagem").innerHTML = resultado === 20
+            ? "Teste ok: " + resultado
+            : "Erro no Teste: " + resultado;
+    }
+    function Porcentagem() {
+         limparResultados();
+        let numero1 = parseFloat(document.getElementById("Numero1").value);
+        let numero2 = parseFloat(document.getElementById("Numero2").value);
+        if (isNaN(numero1) || isNaN(numero2)) {
+            document.getElementById("multiplicacao").innerHTML = "Por favor, insira números válidos.";
+            return null;
+        }
+        let resultado = (numero1 * numero2) / 100; 
+        document.getElementById("resultadoPorcentagem").innerHTML = "O resultado da porcentagem é: " + resultado; 
+            numero2 + "% de " + numero1 + " = " + resultado;
+        return resultado;
+    }
+
 
 </script>
 

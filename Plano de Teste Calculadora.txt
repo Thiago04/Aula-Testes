@@ -4,6 +4,7 @@ Validar as quatro operações matemáticas da calculadora (soma, subtração, di
 e multiplicação), validando que os resultados estejam corretos e que as regras
 de entrada estejam corretas, validando números inválidos e divisão por zero, que as mesmas funcionem
 conforme esperado.
+Incluído porcentagem na calculadora.
 
 
 2: METODOLOGIA DE TESTE
@@ -14,7 +15,7 @@ Testar por etapas as operações da calculador.
 
 3: ESCOPO E TESTES
 
-  - Soma, subtração, divisão e multiplicação
+  - Soma, subtração, divisão e multiplicação, porcentagem
   - Validação de entrada não numérica
   - Divisão por zero
   - Números decimais e negativos
